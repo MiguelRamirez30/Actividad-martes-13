@@ -1,0 +1,57 @@
+//Objeto 3.ts
+(() => {
+  // Objeto con método que usa this
+  const person = {
+    firstName: "John",
+    lastName: "Doe",
+    id: 5566,
+    fullName(): string {
+      return `${this.firstName} ${this.lastName}`;
+    }
+  };
+
+  console.log(person.fullName());
+
+  // Definición de la interfaz
+  interface Planet {
+    name: string;
+    galaxy: string;
+    numberOfMoons: number;
+    weight: number;
+  }
+
+  // Objeto basado en la interfaz
+  const earth: Planet = {
+    name: "Earth",
+    galaxy: "Milky Way",
+    numberOfMoons: 1,
+    weight: 100000
+  };
+
+  console.log(`Planet Name: ${earth.name}`);
+  console.log(`Planet Galaxy: ${earth.galaxy}`);
+  console.log(`Number of Moons: ${earth.numberOfMoons}`);
+  console.log(`Weight: ${earth.weight}`);
+})();
+
+//Objeto 4.ts
+(() => {
+  interface Planet {
+    name: string;
+    galaxy: string;
+    numberOfMoons: number;
+    weight: number;
+  }
+
+  const earth: Planet = {
+    name: "Earth",
+    galaxy: "Milky Way",
+    numberOfMoons: 1,
+    weight: 100000
+  };
+
+  // Iterando sobre las propiedades de forma segura
+  for (const prop in earth) {
+    console.log(`Planet ${prop} :- ${earth[prop as keyof typeof earth]}`);
+  }
+})();
