@@ -1,0 +1,40 @@
+Dado 2 arrays:
+nombre: ['Hugo','Paco','Luis','Pedro','Hector']:
+edad: [35,50,40,18,30]
+
+Realizar el algoritmo utilizando funciones flecha que me indique el nombre y la edad mayor y menor.
+
+Ejemplo de respuesta:
+
+Pedro es el menor con 18 años.
+Paco es el mayor con 50 años.
+
+
+
+(() => {
+  const nombres: string[] = ['Hugo', 'Paco', 'Luis', 'Pedro', 'Hector'];
+  const edades: number[] = [35, 50, 40, 18, 30];
+
+  const mostrarMayorYMenorEdad = (listaEdades: number[]) => {
+    let edadMax = listaEdades[0];
+    let edadMin = listaEdades[0];
+    let posMax = 0;
+    let posMin = 0;
+
+    for (let i = 1; i < listaEdades.length; i++) {
+      if (listaEdades[i] > edadMax) {
+        edadMax = listaEdades[i];
+        posMax = i;
+      }
+      if (listaEdades[i] < edadMin) {
+        edadMin = listaEdades[i];
+        posMin = i;
+      }
+    }
+
+    console.log(`Edad máxima: ${edadMax} - Nombre: ${nombres[posMax]}`);
+    console.log(`Edad mínima: ${edadMin} - Nombre: ${nombres[posMin]}`);
+  };
+
+  mostrarMayorYMenorEdad(edades);
+})();
