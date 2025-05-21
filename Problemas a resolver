@@ -1,0 +1,48 @@
+//P1
+(()=>{
+
+    const addTwoNumbers = (a:number, b:number):number => {
+        return a + b;
+    }
+
+    (() => {
+        console.log(
+            addTwoNumbers(2, 4)===(6)
+        );
+        console.log(
+            addTwoNumbers(10, 10)===(20)
+        );
+    })()
+
+})()
+
+
+//p2
+
+// SumarDosNumeros
+const sumarNumeros = ({ num1, num2 }: { num1: number; num2: number }): number => {
+  return num1 + num2;
+};
+
+(() => {
+  console.log(
+    sumarNumeros({ num1: 2, num2: 4 }) === 6
+  );
+
+  console.log(
+    sumarNumeros({ num1: 10, num2: 20 }) === 30
+  );
+})();
+
+// EliminarVocales
+(() => {
+  const eliminarVocales = (texto: string): string => {
+    return texto.replace(/[aeiouáéíóú]/gi, '');
+  };
+
+  const entrada = "Programación en TypeScript";
+  const resultado = eliminarVocales(entrada);
+
+  console.log(`Texto original: ${entrada}`);
+  console.log(`Texto sin vocales: ${resultado}`);
+})();
