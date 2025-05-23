@@ -1,0 +1,93 @@
+(() => {
+
+    class Manager {
+        constructor(
+            public name: string,
+            public id: number,
+            public phoneNo: number,
+            public location: string
+        ) {}
+
+        public purchaseInventory = () => {}
+        public recordComplaints = () => {}
+        public manageStaff = () => {}
+    }
+
+    class Chef {
+        constructor(
+            public name: string,
+            public id: number,
+            public location: string
+        ) {}
+
+        public takeOrders = () => {}
+    }
+
+    class Inventory {
+        constructor(
+            public type: string,
+            public status: string
+        ) {}
+    }
+
+    class Guest {
+        constructor(
+            public name: string,
+            public id: string,
+            public phoneNo: string,
+            public address: string,
+            public roomNo: string,
+        ) {}
+
+        public checkIn = () => {}
+        public checkOut = () => {}
+        public payBill = () => {}
+    }
+
+    class FoodItem {
+        constructor(
+            public id: number,
+            public name: string
+        ) {}
+    }
+
+    class Housekeeping {
+        constructor(
+            public name: string,
+            public id: number,
+            public location: string
+        ) {}
+
+        public cleanRoom = () => {}
+    }
+
+    class Receptionist {
+        constructor(
+            public name: string,
+            public id: number,
+            public phoneNo: number,
+            public location: string
+        ) {}
+
+        public checkRoomAvailability = () => {}
+        public bookRoom = () => {}
+        public generateBill = () => {}
+        public acceptCustomerFeedback = () => {}
+    }
+
+    class Room {
+        constructor(
+            public roomNo: number,
+            public location: string
+        ) {}
+    }
+
+    class Bill {
+        constructor(
+            public billNo: number,
+            public guestName: string
+        ) {}
+    }
+
+})()
+
