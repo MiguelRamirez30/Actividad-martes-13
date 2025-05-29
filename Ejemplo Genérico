@@ -1,0 +1,82 @@
+// archivo: dataProcessor.ts
+
+export interface DataItem<T> {
+  id: number;
+  data: T;
+}
+
+export function processItems<T>(items: DataItem<T>[], processor: (data: T) => T): DataItem<T>[] {
+  if (!items || items.length === 0) return []; // Validación opcional
+  return items.map(item => ({
+    id: item.id,
+    data: processor(item.data),
+  }));
+}
+
+const stringItems: DataItem<string>[] = [
+  { id: 1, data: "hola" },
+  { id: 2, data: "mundo" },
+];
+
+const processedStrings = processItems(stringItems, str => str.toUpperCase());
+
+console.log(processedStrings);
+// Resultado esperado:
+// [{ id: 1, data: "HOLA" }, { id: 2, data: "MUNDO" }]
+
+const numberItems: DataItem<number>[] = [
+  { id: 1, data: 5 },
+  { id: 2, data: 10 },
+];
+
+const processedNumbers = processItems(numberItems, num => num * 2);
+
+console.log(processedNumbers);
+// Resultado esperado:
+// [{ id: 1, data: 10 }, { id: 2, data: 20 }]
+
+//js
+// archivo: dataProcessor.js
+
+// Función que procesa elementos (no hay tipos en JS)
+function processItems(items, processor) {
+  return items.map(item => ({
+    id: item.id,
+    data: processor(item.data),
+  }));
+}
+
+// Uso con strings
+const stringItems = [
+  { id: 1, data: "hola" },
+  { id: 2, data: "mundo" },
+];
+
+const processedStrings = processItems(stringItems, str => str.toUpperCase());
+console.log(processedStrings);
+
+// Uso con números
+const numberItems = [
+  { id: 1, data: 5 },
+  { id: 2, data: 10 },
+];
+
+const processedNumbers = processItems(numberItems, num => num * 2);
+console.log(processedNumbers);
+
+//index.html
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Función Genérica TS/JS</title>
+</head>
+<body>
+  <h1>Procesamiento Genérico</h1>
+  <pre id="output"></pre>
+
+  <script src="app.js"></script>
+</body>
+</html>
